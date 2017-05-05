@@ -16,6 +16,9 @@
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
 
 // Style tekstu
 h1, h2, h3 {
@@ -46,7 +49,7 @@ h1, h2, h3 {
 .navbar-default .navbar-brand, 
 .navbar-default .navbar-nav > li > a {
     color: white;
-    &:hover {
+    &:hover {                   // DODATKOWA CECHA, gdy najeżdżamy na te właśnie obiekty, możliwe dzięki SASS.
         color: white;
         opacity: 0.75;
     }
