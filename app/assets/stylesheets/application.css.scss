@@ -25,13 +25,6 @@ h1, h2, h3 {
     font-family: 'Dosis', sans-serif;
 }
 
-// Nagłówek Homepage
-.home-przywitanie {
-    margin-top: -20px;
-    padding-top: 50px;
-    padding-bottom: 100px;
-    color: white;
-}
 
 // Wklejenie kodu na gradient tła z uiGradients.com
 .navbar, .home-przywitanie {
@@ -69,4 +62,19 @@ h1, h2, h3 {
     &:hover, &:focus {
         background-color: #BE93C5;
     }
+}
+
+// Nagłówek Homepage
+.home-przywitanie {
+    margin-top: -20px;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    color: white;
+}
+
+
+// Niewyświetlanie komunikatu alert-notice, wywoływanego przy
+// Logowaniu/wylogowaniu poprzez Devise
+.alert-notice {
+    display: none;
 }
