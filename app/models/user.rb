@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   
   belongs_to :plan
+  has_one :profile
   
   #Definiujemy funkcję opisaną w registrations_controller.
   #Jeżeli dane z formularza się zgadzają - odnieś się do Stripe'a
