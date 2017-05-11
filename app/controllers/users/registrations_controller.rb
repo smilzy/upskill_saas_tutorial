@@ -1,6 +1,6 @@
 # Tworzymy nową klasę, która dziedziczy po klasie z Devise - RegistrationsController
 # Wyzwalamy funkcję "create", która się tam znajduje i rozszerzamy ją.
-# Rozszerzamy o "jeżeli są parametry >>:plan<< w adresie URL" to
+# Rozszerzamy o "jeżeli są parametry >:plan< w adresie URL" to
 # Ustaw parametr >:plan< na cechę plan_id elementu >resource<, czyli użykownika
 # Jeżeli ktoś wybrał plan 2, czyli PRO, to wywołaj funkcję .save_with_subscription
 # Którą to funkcję zaraz utworzymy w MODELU users.rb.
@@ -8,6 +8,10 @@
 
 
 class Users::RegistrationsController < Devise::RegistrationsController
+    # Extend default Devise gem behavior so that 
+    # users signing up with the Pro account (plan_id 2)
+    # save with a special Stripe subscription function.
+    # Otherwise Devise signs up uesr as usual.
     def create
         super do |resource| # super do oznacza ze dziedziczymy akcje "create" i rozszerzamy ją
             if params[:plan]
