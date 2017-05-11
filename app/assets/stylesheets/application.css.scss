@@ -72,11 +72,18 @@ h1, h2, h3 {
     color: white;
 }
 
+// Container, w którym są Alerty Devise'a
+.flash-container {
+    position: absolute;
+    width: 100%;
+}
 
-// Niewyświetlanie komunikatu alert-notice, wywoływanego przy
-// Logowaniu/wylogowaniu poprzez Devise
-.alert-notice {
-    display: none;
+// Alerty Devise'a
+.alert-notice, .alert-alert {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.27);
+    border-color: rgba(255, 255, 255, 0.55);
+    margin-top: -14px;
 }
 
 .home-signup-links {
