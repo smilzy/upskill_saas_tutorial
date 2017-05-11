@@ -1,14 +1,14 @@
 /* global $, Stripe */
-//Document ready
+//Document ready.
 $(document).on('turbolinks:load', function(){
-    var theform = $('#pro_form');
-    var submitBtn = $('#form-submit-btn');
+    var theForm = $('#pro_form');
+    var submitBtn = $('#form-signup-btn');
     
     //Set Stripe public key.
     Stripe.setPublishableKey( $('meta[name="stripe-key"]').attr('content') );
     
     //When user clicks form submit btn.
-    submitBtn.click(function(){
+    submitBtn.click(function(event){
         //prevent default submission behavior.
         event.preventDefault();
         submitBtn.val("Processing").prop('disabled', true);
@@ -27,19 +27,19 @@ $(document).on('turbolinks:load', function(){
         //Validate card number.
         if(!Stripe.card.validateCardNumber(ccNum)) {    //sprawdza czy ccNum poprawne i zwraca wartość TRUE albo FALSE. !=not. If not"false" = wykonaj. Jeśli not"true" = nie wykonuj.
             error = true;
-            alert('The credit card number appears to be invalid.')
+            alert('The credit card number appears to be invalid.');
         }
         
         //Validate CVC number.
         if(!Stripe.card.validateCVC(cvcNum)) {    //sprawdza czy ccNum poprawne i zwraca wartość TRUE albo FALSE. !=not. If not"false" = wykonaj. Jeśli not"true" = nie wykonuj.
             error = true;
-            alert('The CVC number appears to be invalid.')
+            alert('The CVC number appears to be invalid.');
         }
         
         //Validate expiration date.
         if(!Stripe.card.validateExpiry(expMonth, expYear)) {    //sprawdza czy ccNum poprawne i zwraca wartość TRUE albo FALSE. !=not. If not"false" = wykonaj. Jeśli not"true" = nie wykonuj.
             error = true;
-            alert('The expiration date appears to be invalid.')
+            alert('The expiration date appears to be invalid.');
         }
         
         if (error) {
@@ -50,7 +50,7 @@ $(document).on('turbolinks:load', function(){
             Stripe.createToken({
                 number: ccNum,
                 cvc: cvcNum,
-                exp_month: expMonh,
+                exp_month: expMonth,
                 exp_year: expYear       // ostatni el. nie ma nic na koncu.
             }, stripeResponseHandler);
         }
