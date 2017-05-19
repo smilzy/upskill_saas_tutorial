@@ -18,6 +18,7 @@ class ProfilesController < ApplicationController
             flash[:success] = "Profile updated!"
             redirect_to user_path(id: params[:user_id] )
         else
+            flash[:danger] = "An error occured. Please verify your input."
             render action: :new
         end
     end
@@ -40,6 +41,7 @@ class ProfilesController < ApplicationController
             # Redirect user to their profile page
             redirect_to user_path(id: params[:user_id] )
         else
+            flash[:danger] = "An error occured. Please verify your input."
             render action: :edit
         end
     end
