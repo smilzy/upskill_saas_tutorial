@@ -6,5 +6,7 @@ class Profile < ActiveRecord::Base
     validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
     validates :phone_number, :presence => true,
                              :length => { :minimum =>8, :maximum => 16 },
-                             format: { with: /\d[0-9]-?\d[0-9]-?\d[0-9]/ }
+                             format: { with: /\A(\+\d{1,3}\s)?\(?\d{1,3}\)?[\s.-]?\d{1,3}[\s.-]?\d{1,3}\z/ }
+    validates :contact_email, :presence => true, :length => { :minimum => 6 },
+                              format: { with: /\A[^@]+@[^@]+\z/ }
 end
