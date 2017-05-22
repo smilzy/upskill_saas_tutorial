@@ -8,5 +8,7 @@ class Profile < ActiveRecord::Base
                              :length => { :minimum =>8, :maximum => 16 },
                              format: { with: /\A(\+\d{1,3}\s)?\(?\d{1,3}\)?[\s.-]?\d{1,3}[\s.-]?\d{1,3}\z/ }
     validates :contact_email, :presence => true, :length => { :minimum => 6 },
-                              format: { with: /\A[^@]+@[^@]+\z/ }
+                             format: { with: /\A[^@]+@[^@]+\z/ }
+    validates :first_name, :presence => true, :length => { :minimum => 3, :maximum => 30 }
+    validates :last_name, :presence => true, :length => { :minimum => 3, :maximum => 30 }
 end
