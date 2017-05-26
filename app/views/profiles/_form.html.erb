@@ -1,4 +1,19 @@
 <%= form_for @profile, url: user_profile_path, :html => { :multipart => true } do |f| %>
+    <% if @profile.errors.any? %>
+  <div id="error_explanation">
+    <div class="profile-alert">
+        The form contains <%= pluralize(@profile.errors.count, "error") %>.
+    </div>
+    <ul>
+      <% @profile.errors.full_messages.each do |msg| %>
+      <li>
+        <%= msg %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
     <div class="form-group">
         <%= f.label :first_name %>
         <%= f.text_field :first_name, class: 'form-control' %>
